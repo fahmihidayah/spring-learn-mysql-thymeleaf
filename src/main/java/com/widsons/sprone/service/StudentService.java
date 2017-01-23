@@ -47,7 +47,7 @@ public class StudentService {
 		Student studentOld = findById(student.getId());
 		if(studentOld != null){
 			studentOld.setName(student.getName());
-			studentOld.setAddress(student.getName());
+			studentOld.setAddress(student.getAddress());
 			studentOld.setAge(student.getAge());
 		}
 	}

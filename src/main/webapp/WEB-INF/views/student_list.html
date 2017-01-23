@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>School Apps - List Student</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>School Apps - List Student</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 	<table border="1">
@@ -14,13 +14,15 @@
 				<th>Address</th>
 			</tr>
 		</thead>
-		
+
 		<tbody>
 			<tr th:each="student : ${students}">
 				<td th:text="${student.id}"></td>
 				<td th:text="${student.name}"></td>
 				<td th:text="${student.age}"></td>
 				<td th:text="${student.address}"></td>
+				<td><a th:href="@{/student/edit/} + ${student.id}">Edit</a></td>
+				<td><a th:href="@{/student/delete/} + ${student.id}">Delete</a></td>
 			</tr>
 		</tbody>
 	</table>
