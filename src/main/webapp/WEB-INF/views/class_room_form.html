@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>School Apps</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Class Room form</h1>
+	<form action="#" th:action="@{/class_room/create}" th:object="${classRoom}" th:method="post">
+		<p>Name: <input type="text" th:field="*{name}" /></p>
+		<p>Description: <input type="text" th:field="*{description}" /></p>
+		<p><input type="submit" value="save" /></p>
+	</form>
+</body>
+</html>

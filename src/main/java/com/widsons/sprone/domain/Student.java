@@ -2,9 +2,12 @@ package com.widsons.sprone.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +22,12 @@ public class Student {
 	private String address;
 	@Column
 	private int age;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "class_room_id")
+	private ClassRoom classRoom;
+	
+	
 	public long getId() {
 		return id;
 	}
@@ -42,6 +51,13 @@ public class Student {
 	}
 	public void setAge(int age) {
 		this.age = age;
+	}
+	
+	public ClassRoom getClassRoom() {
+		return classRoom;
+	}
+	public void setClassRoom(ClassRoom classRoom) {
+		this.classRoom = classRoom;
 	}
 	@Override
 	public int hashCode() {

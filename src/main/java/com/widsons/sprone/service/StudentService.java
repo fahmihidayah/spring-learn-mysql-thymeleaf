@@ -7,7 +7,9 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.widsons.sprone.domain.ClassRoom;
 import com.widsons.sprone.domain.Student;
+import com.widsons.sprone.repository.ClassRoomRepository;
 import com.widsons.sprone.repository.StudentRepository;
 
 
@@ -17,6 +19,9 @@ public class StudentService {
 
 	@Autowired
 	private StudentRepository studentRepository;
+	
+	@Autowired
+	private ClassRoomRepository classRoomRepository;
 	
 	
 	public Student findById(long id){
@@ -50,5 +55,11 @@ public class StudentService {
 			studentOld.setAddress(student.getAddress());
 			studentOld.setAge(student.getAge());
 		}
+	}
+	
+	public void addStudentToClas(long studentId, long classRoomId){
+		ClassRoom classRoom = classRoomRepository.findById(classRoomId);
+		Student student = studentRepository.findById(studentId);
+		classRoom.getStudents().add(student);
 	}
 }

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>School Apps - List Student</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr th:each="classRoom : ${classRooms}">
+				<td th:text="${classRoom.id}"></td>
+				<td th:text="${classRoom.name}"></td>
+				<td th:text="${classRoom.description}"></td>
+				<td><a th:href="@{/student/edit/} + ${classRoom.id}">Edit</a></td>
+				<td><a th:href="@{/student/delete/} + ${classRoom.id}">Delete</a></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
